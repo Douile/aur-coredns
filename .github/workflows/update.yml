@@ -1,0 +1,16 @@
+on:
+  schedule:
+    - cron: '0 0 * * *' # Run daily
+  workflow_dispatch:    # Run manually
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 100
+      - uses: imba-tjd/rebase-upstream-action@0.5
+        with:
+          upstream: 'https://aur.archlinux.org/coredns.git'
+
