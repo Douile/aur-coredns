@@ -23,13 +23,16 @@ build() {
   export PATH=$GOPATH/bin:$PATH
   cd coredns-$pkgver
 
-  # Update plugins
+  # Remove unneeded plugins
   sed -i '/route53:route53/d' plugin.cfg
   sed -i '/azure:azure/d' plugin.cfg
   sed -i '/clouddns:clouddns/d' plugin.cfg
   sed -i '/k8s_external:k8s_external/d' plugin.cfg
   sed -i '/kubernetes:kubernetes/d' plugin.cfg
+
+  # Add custom plugins
   echo "iface:github.com/Douile/coredns-iface" >> plugin.cfg
+  echo "virt:github.com/Douile/coredns-libvirt" >> plugin.cfg
 
   make coredns
 }
