@@ -24,11 +24,32 @@ build() {
   cd coredns-$pkgver
 
   # Remove unneeded plugins
-  sed -i '/route53:route53/d' plugin.cfg
   sed -i '/azure:azure/d' plugin.cfg
+  sed -i '/chaos:chaos/d' plugin.cfg
   sed -i '/clouddns:clouddns/d' plugin.cfg
+  sed -i '/dns64:dns64/d' plugin.cfg
+  sed -i '/dnssec:dnssec/d' plugin.cfg
+  sed -i '/dnstap:dnstap/d' plugin.cfg
+  sed -i '/erratic:erratic/d' plugin.cfg
+  sed -i '/etcd:etcd/d' plugin.cfg
+  sed -i '/file:file/d' plugin.cfg
+  sed -i '/geoip:geoip/d' plugin.cfg
+  sed -i '/grpc:grpc/d' plugin.cfg
+  sed -i '/health:health/d' plugin.cfg
   sed -i '/k8s_external:k8s_external/d' plugin.cfg
   sed -i '/kubernetes:kubernetes/d' plugin.cfg
+  sed -i '/loadbalance:loadbalance/d' plugin.cfg
+  sed -i '/nsid:nsid/d' plugin.cfg
+  sed -i '/pprof:pprof/d' plugin.cfg
+  sed -i '/ready:ready/d' plugin.cfg
+  sed -i '/prometheus:metrics/d' plugin.cfg
+  sed -i '/root:root/d' plugin.cfg
+  sed -i '/route53:route53/d' plugin.cfg
+  sed -i '/sign:sign/d' plugin.cfg
+  sed -i '/secondary:secondary/d' plugin.cfg
+  sed -i '/trace:trace/d' plugin.cfg
+  sed -i '/transfer:transfer/d' plugin.cfg
+  sed -i '/tsig:tsig/d' plugin.cfg
 
   # Add custom plugins
   echo "iface:github.com/Douile/coredns-iface" >> plugin.cfg
