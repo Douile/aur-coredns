@@ -1,7 +1,7 @@
 on:
   schedule:
-    - cron: '0 0 * * *' # Run daily
-  workflow_dispatch:    # Run manually
+    - cron: '52 4 * * *' # Run daily
+  workflow_dispatch:     # Run manually
 
 jobs:
   update:
